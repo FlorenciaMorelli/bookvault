@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">MORELLI2Parcial</string>
     <string name="genreTitle">Géneros</string>
+    <string name="booksTitle">Books</string>
 </resources>
