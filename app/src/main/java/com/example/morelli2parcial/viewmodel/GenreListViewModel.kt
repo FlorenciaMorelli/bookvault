@@ -13,11 +13,4 @@ class GenreListViewModel : ViewModel() {
     init {
         _genreList.value = GenreRepository.listOfGenres
     }
-
-    fun addGenre(name: String) {
-        val genre = Genre(name)
-        val updatedList = _genreList.value.orEmpty().toMutableList()
-        updatedList.add(genre)
-        _genreList.value = updatedList
-    }
 }

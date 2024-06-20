@@ -29,6 +29,8 @@ class MainActivity : AppCompatActivity() {
         genreListViewModel.genreList.observe(this) { genre ->
             initRecycler(GenreRepository.listOfGenres)
         }
+
+
     }
 
     fun initRecycler(genres: List<Genre>) {

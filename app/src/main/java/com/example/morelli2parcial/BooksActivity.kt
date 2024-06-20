@@ -22,6 +22,9 @@ class BooksActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(binding.root)
 
+        val genreName = intent.getStringExtra("genre")
+        binding.tvBooks.text = genreName
+
         bookListViewModel = BookListViewModel()
         bookListViewModel.bookList.observe(this){ book ->
             initRcycler(BookRepository.listOfBooks)
