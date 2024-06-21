@@ -12,11 +12,11 @@ class BookRepository {
             Book("Dune", "Frank Herbert"),
             Book("The Hobbit", "J.R.R. Tolkien")
         )
+
+        fun addBook(book: Book) {
+            listOfBooks.add(book)
+        }
     }
 
 //    fun getBooks(genreId: Int): List<Book> = listOfBooks.filter { it.genreId == genreId }
-
-    fun addBook(book: Book) {
-        listOfBooks.add(book)
-    }
 }

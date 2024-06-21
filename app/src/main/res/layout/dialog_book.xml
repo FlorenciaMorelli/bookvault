@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="250dp"
+    android:layout_height="wrap_content"
+    android:padding="20dp"
+    android:orientation="vertical"
+    android:background="@color/secondary"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dialog_title"
+        android:textSize="25sp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/dialog_book_title"
+        android:textSize="18sp"
+        />
+
+    <EditText
+        android:id="@+id/et_title"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:autofillHints="@string/placeholder_title"
+        android:inputType="text"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:hint="@string/placeholder_title"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/dialog_book_author"
+        android:textSize="18sp"
+        />
+
+    <EditText
+        android:id="@+id/et_author"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:autofillHints="@string/placeholder_author"
+        android:inputType="text"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:hint="@string/placeholder_author"
+        />
+
+    <Button
+        android:id="@+id/btn_add_book"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+
+        android:text="@string/btn_add_book"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/complementary"
+        />
+
+</LinearLayout>

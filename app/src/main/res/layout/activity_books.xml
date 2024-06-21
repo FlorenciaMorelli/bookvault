@@ -27,4 +27,14 @@
         android:orientation="vertical"
         />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_addBook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_gravity="bottom|end"
+        android:contentDescription="@string/add_book"
+        android:backgroundTint="@color/complementary"
+        />
+
 </LinearLayout>
