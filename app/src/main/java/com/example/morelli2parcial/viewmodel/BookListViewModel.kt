@@ -1,5 +1,6 @@
 package com.example.morelli2parcial.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -15,9 +16,11 @@ class BookListViewModel : ViewModel() {
     }
 
     fun addBook(title: String, author: String) {
+        Log.d("BookListViewModel", "Adding book: $title by $author")
         val book = Book(title, author)
         val updatedList = _bookList.value.orEmpty().toMutableList()
         updatedList.add(book)
         _bookList.value = updatedList
+        Log.d("BookListViewModel", "Updated book list: ${_bookList.value}")
     }
 }

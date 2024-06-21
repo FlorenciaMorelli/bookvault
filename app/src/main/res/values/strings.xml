@@ -1,6 +1,13 @@
 <resources>
-    <string name="app_name">MORELLI2Parcial</string>
+    <string name="app_name">BookVault</string>
     <string name="genreTitle">Géneros</string>
     <string name="booksTitle">Books</string>
     <string name="genreButton">Ver libros</string>
+    <string name="add_book">Add Book</string>
+    <string name="dialog_title">Nuevo libro</string>
+    <string name="dialog_book_title">Título del libro</string>
+    <string name="placeholder_title">Ingrese el título del libro</string>
+    <string name="dialog_book_author">Autor del libro</string>
+    <string name="placeholder_author">Ingrese el autor del libro</string>
+    <string name="btn_add_book">Agregar libro</string>
 </resources>
