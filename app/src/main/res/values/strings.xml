@@ -10,4 +10,6 @@
     <string name="dialog_book_author">Autor del libro</string>
     <string name="placeholder_author">Ingrese el autor del libro</string>
     <string name="btn_add_book">Agregar libro</string>
+    <string name="btn_genre"><![CDATA[>]]></string>
+    <string name="back"><![CDATA[<]]> Volver</string>
 </resources>

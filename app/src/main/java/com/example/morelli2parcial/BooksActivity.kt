@@ -2,6 +2,7 @@ package com.example.morelli2parcial
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -39,6 +40,11 @@ class BooksActivity : AppCompatActivity() {
         }
 
         setListener(alertDialog)
+
+        findViewById<Button>(R.id.btn_back).setOnClickListener {
+            // Finish the activity and return to the previous screen
+            finish()
+        }
     }
 
     fun initRecycler(book: List<Book>) {

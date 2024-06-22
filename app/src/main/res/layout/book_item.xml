@@ -2,13 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginVertical="10dp"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:gravity="center_vertical"
+    android:padding="10dp">
 
     <TextView
         android:id="@+id/tv_bookTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/playfair_display"
         android:textSize="20sp"
         android:textColor="@color/black"
         />
@@ -17,6 +20,8 @@
         android:id="@+id/tv_bookAuthor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/playfair_display_italic"
         android:textSize="16sp"
         android:textColor="@color/black"
         />

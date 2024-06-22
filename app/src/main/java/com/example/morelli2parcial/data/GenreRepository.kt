@@ -7,10 +7,10 @@ class GenreRepository {
 //            Genre(2, "Non-Fiction"),
 //            Genre(3, "Science Fiction"),
 //            Genre(4, "Fantasy")
-            Genre("Fiction"),
-            Genre("Non-Fiction"),
-            Genre("Science Fiction"),
-            Genre("Fantasy")
+            Genre("Ficción"),
+            Genre("Ciencia Ficción"),
+            Genre("Fantasía"),
+            Genre("Autoayuda")
         )
     }
 
