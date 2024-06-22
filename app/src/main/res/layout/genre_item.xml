@@ -30,6 +30,7 @@
         android:fontFamily="@font/playfair_display_italic"
         android:textColor="@color/black"
         android:textSize="20sp"
+        android:gravity="right"
         />
 
 </RelativeLayout>

@@ -19,6 +19,20 @@
         android:src="@drawable/booksvault_long"
         />
 
+    <Button
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_gravity="left"
+        android:text="@string/back"
+        android:textColor="@color/black"
+        android:fontFamily="@font/playfair_display"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:gravity="left"
+        android:background="@android:color/transparent"
+        />
+
     <TextView
         android:id="@+id/tv_books"
         android:layout_width="match_parent"
