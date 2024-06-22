@@ -8,6 +8,7 @@
     android:background="@color/white"
     android:paddingVertical="50dp"
     android:paddingHorizontal="10dp"
+    android:gravity="center_horizontal"
     tools:context=".MainActivity">
 
     <TextView

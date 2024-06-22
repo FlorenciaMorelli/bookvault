@@ -1,25 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:padding="16dp">
+    android:layout_margin="10dp"
+    android:background="@color/secondary"
+    android:gravity="center_vertical"
+    android:padding="30dp">
 
     <TextView
         android:id="@+id/tv_genreName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
+        android:layout_centerVertical="true"
+
+        android:gravity="center"
         android:textColor="@color/black"
-        />
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/btn_genre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/genreButton"
-        android:textColor="@color/white"
-        android:backgroundTint="@color/complementary"
-        />
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true"
 
-</LinearLayout>
+        android:backgroundTint="@color/secondary"
+        android:text=">"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        >
+
+    </Button>
+
+</RelativeLayout>
