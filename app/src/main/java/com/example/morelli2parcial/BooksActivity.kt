@@ -66,7 +66,6 @@ class BooksActivity : AppCompatActivity() {
             val title = addTitleBook()
             val author = addAuthorBook()
             if (title.isNotEmpty() && author.isNotEmpty()) {
-                Log.d("BooksActivity", "Title: $title, Author: $author")
                 bookListViewModel.addBook(title, author)
                 alertDialog.dismiss()
             }
