@@ -15,6 +15,7 @@
 
         android:gravity="center"
         android:textColor="@color/black"
+        android:fontFamily="@font/playfair_display_italic"
         android:textSize="20sp" />
 
     <Button
@@ -26,6 +27,7 @@
 
         android:backgroundTint="@color/secondary"
         android:text="@string/btn_genre"
+        android:fontFamily="@font/playfair_display_italic"
         android:textColor="@color/black"
         android:textSize="20sp"
         />
