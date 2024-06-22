@@ -25,11 +25,9 @@
         android:layout_alignParentEnd="true"
 
         android:backgroundTint="@color/secondary"
-        android:text=">"
+        android:text="@string/btn_genre"
         android:textColor="@color/black"
         android:textSize="20sp"
-        >
-
-    </Button>
+        />
 
 </RelativeLayout>
