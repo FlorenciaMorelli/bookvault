@@ -1,5 +1,6 @@
 package com.example.morelli2parcial
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
@@ -18,6 +19,7 @@ class BooksActivity : AppCompatActivity() {
     private lateinit var binding: ActivityBooksBinding
     private lateinit var bookListViewModel: BookListViewModel
     private lateinit var dialogBookBinding: DialogBookBinding
+    private lateinit var adapter: BookListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityBooksBinding.inflate(layoutInflater)
@@ -46,9 +48,14 @@ class BooksActivity : AppCompatActivity() {
         }
     }
 
-    fun initRecycler(book: List<Book>) {
+    fun initRecycler(books: List<Book>) {
+        adapter = BookListAdapter(books.toMutableList()) { selectedBook ->
+            val intent = Intent(this, BookDetailActivity::class.java)
+            intent.putExtra("book", selectedBook)
+            startActivity(intent)
+        }
         binding.rvBooks.layoutManager = LinearLayoutManager(this)
-        binding.rvBooks.adapter = BookListAdapter(book)
+        binding.rvBooks.adapter = adapter
     }
 
     fun setListener(alertDialog: AlertDialog) {
