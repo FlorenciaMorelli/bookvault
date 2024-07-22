@@ -1,8 +1,10 @@
 package com.example.morelli2parcial.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.morelli2parcial.BookDetailActivity
 import com.example.morelli2parcial.R
 import com.example.morelli2parcial.data.Book
 
@@ -17,5 +19,13 @@ class BookListAdapter(val bookList: List<Book>) : RecyclerView.Adapter<BookListV
     override fun onBindViewHolder(holder: BookListViewHolder, position: Int) {
         val book = bookList[position]
         holder.bind(book)
+
+        holder.itemView.setOnClickListener {
+            val context = holder.itemView.context
+            val intent = Intent(context, BookDetailActivity::class.java).apply {
+                putExtra("book", book)
+            }
+            context.startActivity(intent)
+        }
     }
 }

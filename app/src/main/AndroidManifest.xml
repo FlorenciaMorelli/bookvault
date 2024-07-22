@@ -13,6 +13,9 @@
         android:theme="@style/Theme.MORELLI2Parcial"
         tools:targetApi="31">
         <activity
+            android:name=".BookDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".BooksActivity"
             android:exported="false" />
         <activity

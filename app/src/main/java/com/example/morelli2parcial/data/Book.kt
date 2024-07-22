@@ -1,8 +1,8 @@
 package com.example.morelli2parcial.data
 
+import java.io.Serializable
+
 data class Book(
-//    val id: Int,
-//    val genreId: Int,
     val title: String,
     val author: String,
-)
+) : Serializable
