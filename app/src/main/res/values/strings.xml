@@ -16,4 +16,10 @@
     <string name="placeholder_genre">Ingrese el género del libro</string>
     <string name="dialog_book_synopsis">Sinopsis</string>
     <string name="placeholder_synopsis">Ingrese la sinopsis del libro</string>
+    <string name="btn_save">Guardar cambios</string>
+    <string name="author">Author</string>
+    <string name="genre">Genre</string>
+    <string name="synopsis">Synopsis</string>
+    <string name="title">Title</string>
+    <string name="btn_edit">Editar</string>
 </resources>

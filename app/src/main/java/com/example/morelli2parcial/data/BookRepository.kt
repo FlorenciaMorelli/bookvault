@@ -32,5 +32,12 @@ class BookRepository {
         fun addBook(book: Book) {
             listOfBooks.add(book)
         }
+
+        fun updateBook(updatedBook: Book) {
+            val index = listOfBooks.indexOfFirst { it.title == updatedBook.title }
+            if (index != -1) {
+                listOfBooks[index] = updatedBook
+            }
+        }
     }
 }
