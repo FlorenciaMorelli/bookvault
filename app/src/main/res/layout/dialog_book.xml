@@ -33,7 +33,6 @@
         android:inputType="text"
         android:textColor="@color/black"
         android:textSize="16sp"
-        android:fontFamily="@font/playfair_display_italic"
         android:hint="@string/placeholder_title"
         />
 
@@ -53,9 +52,48 @@
         android:autofillHints="@string/placeholder_author"
         android:inputType="text"
         android:textColor="@color/black"
-        android:fontFamily="@font/playfair_display_italic"
         android:textSize="16sp"
         android:hint="@string/placeholder_author"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/dialog_book_genre"
+        android:fontFamily="@font/playfair_display_italic"
+        android:textSize="18sp"
+        />
+
+    <EditText
+        android:id="@+id/et_genre"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:autofillHints="Ingrese el género del libro"
+        android:inputType="text"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:hint="@string/placeholder_genre"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/dialog_book_synopsis"
+        android:fontFamily="@font/playfair_display_italic"
+        android:textSize="18sp"
+        />
+
+    <EditText
+        android:id="@+id/et_synopsis"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:autofillHints="Ingrese la sinopsis del libro"
+        android:inputType="text"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:hint="@string/placeholder_synopsis"
         />
 
     <Button
