@@ -12,4 +12,8 @@
     <string name="btn_add_book">Agregar libro</string>
     <string name="btn_genre"><![CDATA[>]]></string>
     <string name="back"><![CDATA[<]]> Volver</string>
+    <string name="dialog_book_genre">Género</string>
+    <string name="placeholder_genre">Ingrese el género del libro</string>
+    <string name="dialog_book_synopsis">Sinopsis</string>
+    <string name="placeholder_synopsis">Ingrese la sinopsis del libro</string>
 </resources>

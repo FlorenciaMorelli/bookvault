@@ -15,8 +15,8 @@ class BookListViewModel : ViewModel() {
         _bookList.value = BookRepository.listOfBooks
     }
 
-    fun addBook(title: String, author: String) {
-        val book = Book(title, author)
+    fun addBook(title: String, author: String, genre: String, synopsis: String) {
+        val book = Book(title, author, genre, synopsis)
         BookRepository.addBook(book)
         val updatedList = _bookList.value.orEmpty().toMutableList()
         updatedList.add(book)

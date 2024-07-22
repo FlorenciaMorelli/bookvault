@@ -15,6 +15,8 @@ class BookDetailActivity : AppCompatActivity() {
 
         val titleTextView: TextView = findViewById(R.id.textViewTitle)
         val authorTextView: TextView = findViewById(R.id.textViewAuthor)
+        val synopsisTextView: TextView = findViewById(R.id.tv_synopsis)
+
 
         // Obtener el libro del Intent
         val book = intent.getSerializableExtra("book") as? Book
@@ -23,6 +25,7 @@ class BookDetailActivity : AppCompatActivity() {
         book?.let {
             titleTextView.text = it.title
             authorTextView.text = it.author
+            synopsisTextView.text = it.synopsis
         }
     }
 }

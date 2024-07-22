@@ -1,7 +1,6 @@
 package com.example.morelli2parcial
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
@@ -65,8 +64,10 @@ class BooksActivity : AppCompatActivity() {
         dialogBookBinding.btnAddBook.setOnClickListener {
             val title = addTitleBook()
             val author = addAuthorBook()
-            if (title.isNotEmpty() && author.isNotEmpty()) {
-                bookListViewModel.addBook(title, author)
+            val genre = addGenreBook()
+            val synopsis = addSynopsisBook()
+            if (title.isNotEmpty() && author.isNotEmpty() && genre.isNotEmpty() && synopsis.isNotEmpty()) {
+                bookListViewModel.addBook(title, author, genre, synopsis)
                 alertDialog.dismiss()
             }
         }
@@ -81,9 +82,20 @@ class BooksActivity : AppCompatActivity() {
         val author = dialogBookBinding.etAuthor.text.toString()
         return author
     }
+    fun addGenreBook(): String {
+        val title = dialogBookBinding.etGenre.text.toString()
+        return title
+    }
+
+    fun addSynopsisBook(): String {
+        val author = dialogBookBinding.etSynopsis.text.toString()
+        return author
+    }
 
     fun clearEditTexts() {
         dialogBookBinding.etTitle.text.clear()
         dialogBookBinding.etAuthor.text.clear()
+        dialogBookBinding.etGenre.text.clear()
+        dialogBookBinding.etSynopsis.text.clear()
     }
 }
