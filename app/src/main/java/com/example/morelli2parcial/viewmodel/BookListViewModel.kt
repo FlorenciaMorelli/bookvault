@@ -21,4 +21,11 @@ class BookListViewModel : ViewModel() {
         updatedList.add(book)
         _bookList.value = updatedList
     }
+
+    fun deleteBook(book: Book) {
+        BookRepository.deleteBook(book.title)
+        val updatedList = _bookList.value.orEmpty().toMutableList()
+        updatedList.remove(book)
+        _bookList.value = updatedList
+    }
 }

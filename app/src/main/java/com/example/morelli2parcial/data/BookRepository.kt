@@ -39,5 +39,12 @@ class BookRepository {
                 listOfBooks[index] = updatedBook
             }
         }
+
+        fun deleteBook(title: String) {
+            val index = listOfBooks.indexOfFirst { it.title == title }
+            if (index != -1) {
+                listOfBooks.removeAt(index)
+            }
+        }
     }
 }

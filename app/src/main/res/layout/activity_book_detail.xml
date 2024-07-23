@@ -11,44 +11,100 @@
     android:gravity="center_horizontal"
     tools:context=".BookDetailActivity">
 
+    <ImageView
+        android:id="@+id/iv_detailImage"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/booksvault_long"
+        />
+
     <TextView
         android:id="@+id/tv_detailTitle"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="24sp"
+        android:layout_below="@+id/iv_detailImage"
+        android:layout_marginTop="40dp"
+
+        android:fontFamily="@font/playfair_display"
+        android:gravity="center"
+        android:textSize="30sp"
         android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/tv_detailAuthor"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="18sp"/>
+        android:layout_below="@id/tv_detailTitle"
+
+        android:gravity="center"
+        android:fontFamily="@font/playfair_display"
+        android:textSize="24sp"/>
 
     <TextView
         android:id="@+id/tv_detailGenre"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/tv_detailAuthor"
+        android:layout_marginTop="16dp"
+
+        android:gravity="center"
+        android:fontFamily="@font/playfair_display"
         android:textSize="16sp"/>
 
     <TextView
         android:id="@+id/tv_detailSynopsis"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="16sp"/>
+        android:layout_below="@id/tv_detailGenre"
+        android:layout_marginTop="16dp"
 
-    <Button
-        android:id="@+id/btn_edit"
-        android:layout_width="wrap_content"
+        android:gravity="start"
+        android:fontFamily="@font/playfair_display"
+        android:textSize="18sp"/>
+
+    <LinearLayout
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btn_edit"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
         android:layout_below="@id/tv_detailSynopsis"
-        android:layout_margin="16dp"/>
+        android:layout_marginTop="16dp">
+
+        <Button
+            android:id="@+id/btn_edit"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+
+            android:backgroundTint="@color/secondary"
+            android:textColor="@color/complementary"
+            android:text="@string/btn_edit"
+            android:layout_margin="16dp" />
+
+        <Button
+            android:id="@+id/btn_delete"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+
+            android:backgroundTint="@color/secondary"
+            android:textColor="@color/complementary"
+            android:text="@string/btn_delete"
+            android:layout_margin="16dp"/>
+    </LinearLayout>
+
+
 
     <!-- Hidden Edit View -->
     <LinearLayout
         android:id="@+id/editView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
         android:orientation="vertical"
         android:visibility="gone">
 
@@ -56,36 +112,52 @@
             android:id="@+id/et_editTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Title"/>
+            android:fontFamily="@font/playfair_display"
+            android:hint="@string/title"/>
 
         <EditText
             android:id="@+id/et_editAuthor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Author"/>
+            android:fontFamily="@font/playfair_display"
+            android:hint="@string/author"/>
 
         <EditText
             android:id="@+id/et_editGenre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Genre"/>
+            android:fontFamily="@font/playfair_display"
+            android:hint="@string/genre"/>
 
         <EditText
             android:id="@+id/et_editSynopsis"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Synopsis"/>
+            android:fontFamily="@font/playfair_display"
+            android:hint="@string/synopsis"/>
 
-        <Button
-            android:id="@+id/btn_save"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Save"/>
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp">
 
-        <Button
-            android:id="@+id/btn_discard"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Discard"/>
+            <Button
+                android:id="@+id/btn_save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/secondary"
+                android:textColor="@color/complementary"
+                android:text="@string/btn_save"/>
+            <Button
+                android:id="@+id/btn_discard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/secondary"
+                android:textColor="@color/complementary"
+                android:text="@string/btn_discard"/>
+        </LinearLayout>
+
     </LinearLayout>
 </RelativeLayout>

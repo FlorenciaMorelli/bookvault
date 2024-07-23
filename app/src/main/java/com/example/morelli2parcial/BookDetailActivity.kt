@@ -1,6 +1,7 @@
 package com.example.morelli2parcial
 
 import android.content.Context
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
@@ -11,6 +12,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.morelli2parcial.data.Book
 import com.example.morelli2parcial.data.BookRepository
+import com.example.morelli2parcial.viewmodel.BookListViewModel
 
 class BookDetailActivity : AppCompatActivity() {
 
@@ -20,6 +22,7 @@ class BookDetailActivity : AppCompatActivity() {
     private lateinit var tvGenre: TextView
     private lateinit var tvSynopsis: TextView
     private lateinit var btnEdit: Button
+    private lateinit var btnDelete: Button
     private lateinit var editView: LinearLayout
     private lateinit var etEditTitle: EditText
     private lateinit var etEditAuthor: EditText
@@ -27,6 +30,9 @@ class BookDetailActivity : AppCompatActivity() {
     private lateinit var etEditSynopsis: EditText
     private lateinit var btnSave: Button
     private lateinit var btnDiscard: Button
+
+    private lateinit var bookListViewModel: BookListViewModel
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +43,7 @@ class BookDetailActivity : AppCompatActivity() {
         tvGenre = findViewById(R.id.tv_detailGenre)
         tvSynopsis = findViewById(R.id.tv_detailSynopsis)
         btnEdit = findViewById(R.id.btn_edit)
+        btnDelete = findViewById(R.id.btn_delete)
         editView = findViewById(R.id.editView)
         etEditTitle = findViewById(R.id.et_editTitle)
         etEditAuthor = findViewById(R.id.et_editAuthor)
@@ -45,11 +52,17 @@ class BookDetailActivity : AppCompatActivity() {
         btnSave = findViewById(R.id.btn_save)
         btnDiscard = findViewById(R.id.btn_discard)
 
+        bookListViewModel = BookListViewModel()
+
         book = intent.getSerializableExtra("book") as? Book ?: return
         displayBookDetails()
 
         btnEdit.setOnClickListener {
             toggleEditMode(true)
+        }
+
+        btnDelete.setOnClickListener {
+            showDeleteConfirmationDialog(book)
         }
 
         btnSave.setOnClickListener {
@@ -76,6 +89,7 @@ class BookDetailActivity : AppCompatActivity() {
             tvGenre.visibility = TextView.GONE
             tvSynopsis.visibility = TextView.GONE
             btnEdit.visibility = Button.GONE
+            btnDelete.visibility = Button.GONE
 
             editView.visibility = LinearLayout.VISIBLE
             etEditTitle.setText(book.title)
@@ -88,6 +102,7 @@ class BookDetailActivity : AppCompatActivity() {
             tvGenre.visibility = TextView.VISIBLE
             tvSynopsis.visibility = TextView.VISIBLE
             btnEdit.visibility = Button.VISIBLE
+            btnDelete.visibility = Button.VISIBLE
 
             editView.visibility = LinearLayout.GONE
         }
@@ -97,16 +112,16 @@ class BookDetailActivity : AppCompatActivity() {
         val changes = mutableListOf<String>()
 
         if (etEditTitle.text.toString() != book.title) {
-            changes.add("Título: ${book.title} -> ${etEditTitle.text}")
+            changes.add("el título \"${book.title}\" por \"${etEditTitle.text}\"")
         }
         if (etEditAuthor.text.toString() != book.author) {
-            changes.add("Autor: ${book.author} -> ${etEditAuthor.text}")
+            changes.add("el autor \"${book.author}\" por \"${etEditAuthor.text}\"")
         }
         if (etEditGenre.text.toString() != book.genre) {
-            changes.add("Género: ${book.genre} -> ${etEditGenre.text}")
+            changes.add("El género \"${book.genre}\" por \"${etEditGenre.text}\"")
         }
         if (etEditSynopsis.text.toString() != book.synopsis) {
-            changes.add("Sinopsis: ${book.synopsis} -> ${etEditSynopsis.text}")
+            changes.add("La sinopsis \"${book.synopsis}\" por \"${etEditSynopsis.text}\"")
         }
 
         if (changes.isEmpty()) {
@@ -116,7 +131,7 @@ class BookDetailActivity : AppCompatActivity() {
             return
         }
 
-        val message = "Has modificado:\n" + changes.joinToString("\n") + "\n¿Deseas guardar?"
+        val message = "Has modificado " + changes.joinToString("\n") + "\n¿Deseas guardar los cambios?"
 
         val dialog = AlertDialog.Builder(this)
             .setTitle("Confirmación")
@@ -147,5 +162,22 @@ class BookDetailActivity : AppCompatActivity() {
     private fun hideKeyboard() {
         val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
+    }
+
+    private fun showDeleteConfirmationDialog(book: Book?) {
+        val builder = AlertDialog.Builder(this)
+        builder.setMessage("¿Estás seguro de que quieres eliminar este libro?")
+            .setPositiveButton("Sí", DialogInterface.OnClickListener { dialog, id ->
+                // Eliminar el libro
+                book?.let {
+                    bookListViewModel.deleteBook(it)
+                    finish() // Cerrar la actividad después de eliminar el libro
+                }
+            })
+            .setNegativeButton("No", DialogInterface.OnClickListener { dialog, id ->
+                // Cancelar la eliminación
+                dialog.dismiss()
+            })
+        builder.create().show()
     }
 }
