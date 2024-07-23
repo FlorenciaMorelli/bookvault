@@ -22,6 +22,7 @@ class BookListAdapter(
     override fun onBindViewHolder(holder: BookListViewHolder, position: Int) {
         val book = bookList[position]
         holder.bind(book)
+        // Set click listener for the item view
         holder.itemView.setOnClickListener {
             val context = holder.itemView.context
             val intent = Intent(context, BookDetailActivity::class.java)

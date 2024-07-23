@@ -16,6 +16,7 @@ import com.example.morelli2parcial.viewmodel.BookListViewModel
 
 class BookDetailActivity : AppCompatActivity() {
 
+    // Variables
     private lateinit var book: Book
     private lateinit var tvTitle: TextView
     private lateinit var tvAuthor: TextView
@@ -38,6 +39,7 @@ class BookDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_book_detail)
 
+        // Initialize views
         tvTitle = findViewById(R.id.tv_detailTitle)
         tvAuthor = findViewById(R.id.tv_detailAuthor)
         tvGenre = findViewById(R.id.tv_detailGenre)
@@ -54,9 +56,11 @@ class BookDetailActivity : AppCompatActivity() {
 
         bookListViewModel = BookListViewModel()
 
+        // Get book from intent
         book = intent.getSerializableExtra("book") as? Book ?: return
         displayBookDetails()
 
+        // Set click listeners for buttons
         btnEdit.setOnClickListener {
             toggleEditMode(true)
         }
@@ -71,10 +75,11 @@ class BookDetailActivity : AppCompatActivity() {
 
         btnDiscard.setOnClickListener {
             toggleEditMode(false)
-            hideKeyboard() // Oculta el teclado después de descartar
+            hideKeyboard() // Hide keyboard as soon as discard button is clicked
         }
     }
 
+    // Functions
     private fun displayBookDetails() {
         tvTitle.text = book.title
         tvAuthor.text = book.author
@@ -84,6 +89,7 @@ class BookDetailActivity : AppCompatActivity() {
 
     private fun toggleEditMode(isEditing: Boolean) {
         if (isEditing) {
+            // Hide static texts view
             tvTitle.visibility = TextView.GONE
             tvAuthor.visibility = TextView.GONE
             tvGenre.visibility = TextView.GONE
@@ -91,12 +97,14 @@ class BookDetailActivity : AppCompatActivity() {
             btnEdit.visibility = Button.GONE
             btnDelete.visibility = Button.GONE
 
+            // Show edit texts
             editView.visibility = LinearLayout.VISIBLE
             etEditTitle.setText(book.title)
             etEditAuthor.setText(book.author)
             etEditGenre.setText(book.genre)
             etEditSynopsis.setText(book.synopsis)
         } else {
+            // Show static texts view
             tvTitle.visibility = TextView.VISIBLE
             tvAuthor.visibility = TextView.VISIBLE
             tvGenre.visibility = TextView.VISIBLE
@@ -104,6 +112,7 @@ class BookDetailActivity : AppCompatActivity() {
             btnEdit.visibility = Button.VISIBLE
             btnDelete.visibility = Button.VISIBLE
 
+            // Hide edit texts
             editView.visibility = LinearLayout.GONE
         }
     }
@@ -111,6 +120,7 @@ class BookDetailActivity : AppCompatActivity() {
     private fun showSaveConfirmationDialog() {
         val changes = mutableListOf<String>()
 
+        // Check for changes
         if (etEditTitle.text.toString() != book.title) {
             changes.add("el título \"${book.title}\" por \"${etEditTitle.text}\"")
         }
@@ -133,6 +143,7 @@ class BookDetailActivity : AppCompatActivity() {
 
         val message = "Has modificado " + changes.joinToString("\n") + "\n¿Deseas guardar los cambios?"
 
+        // Show confirmation dialog
         val dialog = AlertDialog.Builder(this)
             .setTitle("Confirmación")
             .setMessage(message)
@@ -147,16 +158,18 @@ class BookDetailActivity : AppCompatActivity() {
     }
 
     private fun saveBookDetails() {
+        // Update book details
         val updatedBook = book.copy(
             title = etEditTitle.text.toString(),
             author = etEditAuthor.text.toString(),
             genre = etEditGenre.text.toString(),
             synopsis = etEditSynopsis.text.toString()
         )
+        // Save changes
         BookRepository.updateBook(updatedBook)
         book = updatedBook
         displayBookDetails()
-        hideKeyboard() // Oculta el teclado después de guardar
+        hideKeyboard() // Hide keyboard after saving
     }
 
     private fun hideKeyboard() {
@@ -165,17 +178,18 @@ class BookDetailActivity : AppCompatActivity() {
     }
 
     private fun showDeleteConfirmationDialog(book: Book?) {
+        // Show confirmation dialog
         val builder = AlertDialog.Builder(this)
         builder.setMessage("¿Estás seguro de que quieres eliminar este libro?")
             .setPositiveButton("Sí", DialogInterface.OnClickListener { dialog, id ->
                 // Eliminar el libro
                 book?.let {
                     bookListViewModel.deleteBook(it)
-                    finish() // Cerrar la actividad después de eliminar el libro
+                    finish() // Close the activity after deletion is confirmed
                 }
             })
             .setNegativeButton("No", DialogInterface.OnClickListener { dialog, id ->
-                // Cancelar la eliminación
+                // User cancelled the deletion
                 dialog.dismiss()
             })
         builder.create().show()

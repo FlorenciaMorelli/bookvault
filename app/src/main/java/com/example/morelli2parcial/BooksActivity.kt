@@ -49,6 +49,7 @@ class BooksActivity : AppCompatActivity() {
     }
 
     fun initRecycler(books: List<Book>) {
+        // Initialize the RecyclerView and set the adapter with the list of books
         adapter = BookListAdapter(books.toMutableList()) { selectedBook ->
             val intent = Intent(this, BookDetailActivity::class.java)
             intent.putExtra("book", selectedBook)

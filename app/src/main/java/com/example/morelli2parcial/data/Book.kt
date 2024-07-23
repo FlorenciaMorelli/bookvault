@@ -7,4 +7,4 @@ data class Book(
     val author: String,
     val genre: String,
     val synopsis: String
-) : Serializable
+) : Serializable // Convert to byte stream to send over intents
